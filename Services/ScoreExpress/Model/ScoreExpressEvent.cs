@@ -1,8 +1,8 @@
 using System.Text.Json.Serialization;
 
-namespace GymnasticScores.Services.Recreatex.Model;
+namespace GymnasticScores.Services.ScoreExpress.Model;
 
-public record RecreatexEvent(
+public record ScoreExpressEvent(
     string Id,
     string Group,
     string Title,

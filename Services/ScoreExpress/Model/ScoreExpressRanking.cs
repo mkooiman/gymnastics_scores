@@ -1,6 +1,6 @@
-namespace GymnasticScores.Services.Recreatex.Model;
+namespace GymnasticScores.Services.ScoreExpress.Model;
 
-public record RecreatexRanking(
+public record ScoreExpressRanking(
     string Id = null!,
     Dictionary<string,string> Title = null!,
     int Round = 0,

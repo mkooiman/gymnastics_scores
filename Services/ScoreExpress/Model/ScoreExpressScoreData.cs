@@ -1,6 +1,6 @@
-namespace GymnasticScores.Services.Recreatex.Model;
+namespace GymnasticScores.Services.ScoreExpress.Model;
 
-public record RecreatexScoreData(
+public record ScoreExpressScoreData(
     string Id = null!,
     string Group = null!,
     string Type = null!,
@@ -8,10 +8,10 @@ public record RecreatexScoreData(
     string? TeamMethod = null, // Nullable since it's null in the JSON
     Dictionary<string,string> Title = null!,
     int Round = 0,
-    List<RecreatexExerciseGroup> Exercises = null!,
-    List<RecreatexItem> Items = null!)
+    List<ScoreExpressExerciseGroup> Exercises = null!,
+    List<ScoreExpressItem> Items = null!)
 {
-    public RecreatexScoreData() : this(
+    public ScoreExpressScoreData() : this(
         Id: null!,
         Group: null!,
         Type: null!,
@@ -19,7 +19,7 @@ public record RecreatexScoreData(
         TeamMethod: null,
         Title: null!,
         Round: 0,
-        Exercises: new List<RecreatexExerciseGroup>(),
-        Items: new List<RecreatexItem>())
+        Exercises: new List<ScoreExpressExerciseGroup>(),
+        Items: new List<ScoreExpressItem>())
     { }
 }

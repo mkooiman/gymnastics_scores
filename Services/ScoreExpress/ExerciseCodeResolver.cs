@@ -1,8 +1,8 @@
 using AutoMapper;
 using GymnasticScores.Logic.Model;
-using GymnasticScores.Services.Recreatex.Model;
+using GymnasticScores.Services.ScoreExpress.Model;
 
-namespace GymnasticScores.Services.Recreatex;
+namespace GymnasticScores.Services.ScoreExpress;
 
 public class ExerciseCodeResolver //: IValueResolver<RecreatexDiscipline, Discipline, ExerciseCode>
 {

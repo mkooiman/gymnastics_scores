@@ -1,7 +1,7 @@
 
-namespace GymnasticScores.Services.Recreatex.Model;
+namespace GymnasticScores.Services.ScoreExpress.Model;
 
-public record RecreatexEventData(
+public record ScoreExpressEventData(
     string Id = null!,
     string Group = null!,
     string Title = null!,
@@ -11,11 +11,11 @@ public record RecreatexEventData(
     string Locale = null!,
     string LogoUrl = null!,
     bool ShowFlags = false,
-    List<RecreatexRound> Rounds = null!,
-    List<RecreatexCategory> Categories = null!,
+    List<ScoreExpressRound> Rounds = null!,
+    List<ScoreExpressCategory> Categories = null!,
     List<string> Clubs = null!)
 {
-    public RecreatexEventData() : this(
+    public ScoreExpressEventData() : this(
         Id: null!,
         Group: null!,
         Title: null!,
@@ -25,8 +25,8 @@ public record RecreatexEventData(
         Locale: null!,
         LogoUrl: null!,
         ShowFlags: false,
-        Rounds: new List<RecreatexRound>(),
-        Categories: new List<RecreatexCategory>(),
+        Rounds: new List<ScoreExpressRound>(),
+        Categories: new List<ScoreExpressCategory>(),
         Clubs: new List<string>())
     { }
 }

@@ -1,21 +1,21 @@
-namespace GymnasticScores.Services.Recreatex.Model;
+namespace GymnasticScores.Services.ScoreExpress.Model;
 
-public record RecreatexDisciplineData(
+public record ScoreExpressDisciplineData(
     string Id = null!,
     string Group = null!,
     string Title = null!,
-    List<RecreatexRound> Rounds = null!,
-    List<RecreatexRanking> Rankings = null!,
+    List<ScoreExpressRound> Rounds = null!,
+    List<ScoreExpressRanking> Rankings = null!,
     string Status = null!,
     bool ScorePublication = false,
     string RankingPublication = null!)
 {
-    public RecreatexDisciplineData() : this(
+    public ScoreExpressDisciplineData() : this(
         Id: null!,
         Group: null!,
         Title: null!,
-        Rounds: new List<RecreatexRound>(),
-        Rankings: new List<RecreatexRanking>(),
+        Rounds: new List<ScoreExpressRound>(),
+        Rankings: new List<ScoreExpressRanking>(),
         Status: null!,
         ScorePublication: false,
         RankingPublication: null!)
