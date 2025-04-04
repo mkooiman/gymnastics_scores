@@ -13,16 +13,20 @@ public class EventEntity
 
     [Required]
     public string Title { get; set; }
+    
+    public string? Venue { get; set; }
 
-    [Required]
-    public string Venue { get; set; }
-
+    public DateTime Added { get; set; }
     public DateTime DateFrom { get; set; }
     public DateTime DateTo { get; set; }
 
-    public string LogoUrl { get; set; }
+    public string? LogoUrl { get; set; }
+    
 
-    // Navigation property for the one-to-many relationship
-    public List<DisciplineEntity> Disciplines { get; set; } = new ();
+    [ForeignKey("OrganizationId")]
+    public OrganizationEntity Organization { get; set; }
+
+    public List<DisciplineEntity> Disciplines { get; set; }
 }
+
 

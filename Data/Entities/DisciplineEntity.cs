@@ -14,17 +14,21 @@ public class DisciplineEntity
 
     [Required]
     public string Title { get; set; }
+    public DateTime Added { get; set; }
 
     public ExerciseCode Exercise { get; set; }
 
-    public string LogoUrl { get; set; }
+    public string? LogoUrl { get; set; }
 
     public bool ShowFlags { get; set; }
 
     // Foreign key for Event
     public string EventId { get; set; }
 
+
     // Navigation property back to Event
     [ForeignKey("EventId")]
     public EventEntity Event { get; set; }
+    
+    
 }

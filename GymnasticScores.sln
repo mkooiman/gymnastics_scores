@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{5E4B31F0-85BE-446A-9E43-B56E87BFF7A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tasks", "Tasks\Tasks.csproj", "{661CD1DA-3655-48B3-B720-A9B3A13C1FC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{5E4B31F0-85BE-446A-9E43-B56E87BFF7A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E4B31F0-85BE-446A-9E43-B56E87BFF7A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E4B31F0-85BE-446A-9E43-B56E87BFF7A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{661CD1DA-3655-48B3-B720-A9B3A13C1FC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{661CD1DA-3655-48B3-B720-A9B3A13C1FC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{661CD1DA-3655-48B3-B720-A9B3A13C1FC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{661CD1DA-3655-48B3-B720-A9B3A13C1FC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

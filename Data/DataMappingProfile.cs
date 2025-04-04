@@ -9,6 +9,11 @@ public class DataMappingProfile: Profile
     public DataMappingProfile()
     {
         CreateMap<OrganizationEntity, Organization>().ReverseMap();
+        
+        CreateMap<EventEntity, Event>().ReverseMap();
+        
+        CreateMap<DisciplineEntity, Discipline>().ReverseMap();
+        
     }
     
 }

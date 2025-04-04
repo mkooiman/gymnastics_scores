@@ -23,6 +23,9 @@ namespace GymnasticScores.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime>("Added")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("EventId")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -36,7 +39,6 @@ namespace GymnasticScores.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LogoUrl")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("TEXT");
 
@@ -61,6 +63,9 @@ namespace GymnasticScores.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
+                    b.Property<DateTime>("Added")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("DateFrom")
                         .HasColumnType("TEXT");
 
@@ -73,8 +78,11 @@ namespace GymnasticScores.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LogoUrl")
-                        .IsRequired()
                         .HasMaxLength(500)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("OrganizationId")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
@@ -83,11 +91,12 @@ namespace GymnasticScores.Data.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Venue")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OrganizationId");
 
                     b.ToTable("Events");
                 });
@@ -95,6 +104,9 @@ namespace GymnasticScores.Data.Migrations
             modelBuilder.Entity("GymnasticScores.Data.Entities.OrganizationEntity", b =>
                 {
                     b.Property<string>("Id")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Added")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Country")
@@ -127,7 +139,23 @@ namespace GymnasticScores.Data.Migrations
 
             modelBuilder.Entity("GymnasticScores.Data.Entities.EventEntity", b =>
                 {
+                    b.HasOne("GymnasticScores.Data.Entities.OrganizationEntity", "Organization")
+                        .WithMany("Events")
+                        .HasForeignKey("OrganizationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Organization");
+                });
+
+            modelBuilder.Entity("GymnasticScores.Data.Entities.EventEntity", b =>
+                {
                     b.Navigation("Disciplines");
+                });
+
+            modelBuilder.Entity("GymnasticScores.Data.Entities.OrganizationEntity", b =>
+                {
+                    b.Navigation("Events");
                 });
 #pragma warning restore 612, 618
         }

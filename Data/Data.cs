@@ -17,7 +17,11 @@ public class Data
         builderServices.AddAutoMapper(typeof(DataMappingProfile));
         builderServices.AddDbContext<GymnasticsScoresDbContext>(options =>
             options.UseSqlite(connectionString));
+        
         builderServices.AddScoped<IOrganizationRepository, OrganizationRepository>();
+        builderServices.AddScoped<IEventRepository, EventRepository>();
+        builderServices.AddScoped<IDisciplineRepository, DisciplineRepository>();
+        builderServices.AddScoped<IParticipationRepository, ParticipationRepository>();
     }
 
     public static void Start(WebApplication app)

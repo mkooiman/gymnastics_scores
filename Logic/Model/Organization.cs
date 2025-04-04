@@ -1,3 +1,3 @@
 namespace GymnasticScores.Logic.Model;
 
-public record Organization(string id, string name, string country, string locale, string logoUrl);
+public record Organization(string Id, string Name, string Country, string Locale, string LogoUrl);

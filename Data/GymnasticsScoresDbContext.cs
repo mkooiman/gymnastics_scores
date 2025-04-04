@@ -14,16 +14,19 @@ public class GymnasticsScoresDbContext : DbContext
     
     public DbSet<DisciplineEntity> Disciplines { get; set; }
     
+    public DbSet<ParticipationEntity> Participations { get; set; }
+    
+    public DbSet<ScoreRoundEntity> ScoreRounds { get; set; }
+    
+    public DbSet<ScoreExerciseEntity> ScoreExercises { get; set; }
+    
+    public DbSet<ParticipantNameEntity> ParticipantNames { get; set; }
+    
+    public DbSet<AllAroundResultEntity> AllAroundResults { get; set; }
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // Configure the one-to-many relationship
-        modelBuilder.Entity<EventEntity>()
-            .HasMany(e => e.Disciplines)
-            .WithOne(d => d.Event)
-            .HasForeignKey(d => d.EventId)
-            .OnDelete(DeleteBehavior.Cascade);
-
-        // Configure string properties with max length (optional but recommended)
+        
         modelBuilder.Entity<EventEntity>(entity =>
         {
             entity.Property(e => e.Id).HasMaxLength(50);
@@ -39,6 +42,52 @@ public class GymnasticsScoresDbContext : DbContext
             entity.Property(d => d.Group).HasMaxLength(100);
             entity.Property(d => d.Title).HasMaxLength(200);
             entity.Property(d => d.LogoUrl).HasMaxLength(500);
+        });
+
+        modelBuilder.Entity<ParticipationEntity>(entity =>
+        {
+            entity.Property(p => p.Id).HasMaxLength(50);
+            entity.Property(p => p.Category).HasMaxLength(100);
+            entity.Property(p => p.Club).HasMaxLength(200);
+            entity.Property(p => p.Country).HasMaxLength(100);
+            entity.Property(p => p.Names).HasMaxLength(1000);
+            entity.Property(p => p.Scores).HasMaxLength(4000);
+            entity.Property(p => p.AaResults).HasMaxLength(2000);
+        });
+
+        modelBuilder.Entity<ScoreRoundEntity>(entity =>
+        {
+            entity.HasOne(s => s.Participation)
+                .WithMany(p => p.ScoreRounds)
+                .HasForeignKey(s => s.ParticipationId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        modelBuilder.Entity<ScoreExerciseEntity>(entity =>
+        {
+            entity.Property(e => e.ExerciseCode).HasMaxLength(50);
+            entity.HasOne(s => s.ScoreRound)
+                .WithMany(r => r.Exercises)
+                .HasForeignKey(s => s.ScoreRoundId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        modelBuilder.Entity<ParticipantNameEntity>(entity =>
+        {
+            entity.Property(n => n.Name).HasMaxLength(200);
+            entity.HasOne(n => n.Participation)
+                .WithMany(p => p.Names)
+                .HasForeignKey(n => n.ParticipationId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        modelBuilder.Entity<AllAroundResultEntity>(entity =>
+        {
+            entity.Property(a => a.Discipline).HasMaxLength(100);
+            entity.HasOne(a => a.Participation)
+                .WithMany(p => p.AllAroundResults)
+                .HasForeignKey(a => a.ParticipationId)
+                .OnDelete(DeleteBehavior.Cascade);
         });
     }
 }

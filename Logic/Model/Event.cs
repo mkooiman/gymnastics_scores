@@ -10,5 +10,10 @@ public record Event(
     DateTime DateFrom,
     DateTime DateTo,
     string LogoUrl,
-    List<Discipline> Disciplines);
+    List<Discipline> Disciplines)
+{
+    public Event() : this(null, null, null, null, DateTime.MinValue, DateTime.MinValue, null, new List<Discipline>())
+    {
+    }
+}
 

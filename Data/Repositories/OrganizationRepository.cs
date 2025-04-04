@@ -15,7 +15,7 @@ public class OrganizationRepository(GymnasticsScoresDbContext dbContext,IMapper 
 
     public async Task Upsert(Organization organization)
     {
-        var existing = await GetOrganizationById(organization.id);
+        var existing = await GetOrganizationById(organization.Id);
         if (existing != null)
         {
             mapper.Map(organization, existing);
@@ -23,6 +23,7 @@ public class OrganizationRepository(GymnasticsScoresDbContext dbContext,IMapper 
         else
         {
             var entity = mapper.Map<OrganizationEntity>(organization);    
+            entity.Added = DateTime.UtcNow;
             await dbContext.Organizations.AddAsync(entity);
         }
 

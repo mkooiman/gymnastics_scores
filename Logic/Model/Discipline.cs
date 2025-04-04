@@ -5,5 +5,5 @@ public record Discipline (
     string Group,
     string Title ,
     string DisciplineCode,
-    string LogoUrl,
+    string? LogoUrl,
     bool? ShowFlags );

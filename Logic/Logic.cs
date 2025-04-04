@@ -12,8 +12,9 @@ public static class Logic
         builderServices.AddScoped<IListOrganizationsUseCase, ListOrganizationsUseCase>();
         builderServices.AddScoped<IGetCategoriesForEventUseCase, GetCategoriesForEventUseCase>();
         builderServices.AddScoped<IGetRankingsForCategoryUseCase, GetRankingsForCategoryUseCase>();
-        builderServices.AddScoped<IRetrieveOrganizationsUseCase, RetrieveOrganizationsUseCase>();
+        
         builderServices.AddScoped<IGetScoresForRankingUseCase, GetScoresForRankingUseCase>();
+        builderServices.AddScoped<IUpdateEventsUseCase, UpdateEventsUseCase>();
     }
 
     public static void Start(WebApplication app)
